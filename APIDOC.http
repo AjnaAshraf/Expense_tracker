@@ -1,0 +1,107 @@
+# api enpoint for creating user
+
+###
+POST http://127.0.0.1:8000/v1/spending/register/
+Content-Type: application/json
+
+{
+
+    "username":"user1",
+    "email":"user1@gmail.com",
+    "password":"user1@123"
+}
+
+
+#api call for getting a token 
+###
+POST http://127.0.0.1:8000/v1/spending/token/
+Content-Type: application/json
+
+{
+
+    "username":"django",
+    "password":"password@123"
+}
+
+#api call for listing user 
+###
+GET http://127.0.0.1:8000/v1/spending/me/
+Accept: application/json
+# Authorization: Basic django:password@123
+Authorization: Token fae3063be680d1b16d472366abb8384cc10f089e
+
+#=========== Expense Endpoints ================
+
+# api call for listing all expense 
+###
+GET http://127.0.0.1:8000/v1/spending/expenses/
+Accept: application/json
+# Authorization: Basic django:password@123
+Authorization: Token fae3063be680d1b16d472366abb8384cc10f089e
+
+
+
+#api call for creating expense
+
+###
+POST http://127.0.0.1:8000/v1/spending/expenses/
+Content-Type: application/json
+# Authorization: Basic django:password@123
+Authorization: Token fae3063be680d1b16d472366abb8384cc10f089e
+
+{
+
+    "title":"food ",
+    "amount":15000,
+    "category":"FOOD",
+    "payment_method":"upi"
+
+}
+
+# api call for fetching expense detail
+
+###
+GET http://127.0.0.1:8000/v1/spending/expenses/2/
+Accept: application/json
+# Authorization: Basic django:password@123
+Authorization: Token fae3063be680d1b16d472366abb8384cc10f089e
+
+#api call for updating an expense
+
+###
+PUT http://127.0.0.1:8000/v1/spending/expenses/1/
+Content-Type: application/json
+# Authorization: Basic user1:user1@123
+Authorization: Token fae3063be680d1b16d472366abb8384cc10f089e
+
+{
+  "id": 1,
+  "title": "medicine",
+  "amount": "4455.00",
+  "category": "HEALTH",
+  "priority": "need",
+  "payment_method": "cash",
+  "created_at": "2026-10-10T14:05:54.797323Z",
+  "updated_at": "2026-10-10T14:05:54.797323Z",
+  "owner": 1
+}
+
+# api call for deleting an expense
+###
+DELETE  http://127.0.0.1:8000/v1/spending/expenses/3/
+Accept: application/json
+# Authorization: Basic django:password@123
+Authorization: Token fae3063be680d1b16d472366abb8384cc10f089e
+
+#api call for  Expense_summary
+
+###
+GET http://127.0.0.1:8000/v1/spending/expenses/summary/
+Accept: application/json
+Authorization: Token fae3063be680d1b16d472366abb8384cc10f089e
+
+#api call for budget plan 
+###
+GET http://127.0.0.1:8000/v1/spending/budget_plan/
+Accept: application/json
+Authorization: Token fae3063be680d1b16d472366abb8384cc10f089e
